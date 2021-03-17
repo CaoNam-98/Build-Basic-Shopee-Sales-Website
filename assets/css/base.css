@@ -20,15 +20,15 @@ html {
     box-sizing: border-box;
 }
 
-.grid {
+/*.grid {
     width: 1200px; /* Khi kích thước màn hình > 1200px thì kích thước lớn nhất của .grid là 1200px */
-    max-width: 100%; /* Khi kích thước màn hình < 1200px thì nó sẽ giảm .grid xuống cho bằng kích thước màn hình */
-    margin: 0 auto; /* Tự động căn giữa khối .grid khi ở trong 1 khối khác */
-}
+    /*max-width: 100%; /* Khi kích thước màn hình < 1200px thì nó sẽ giảm .grid xuống cho bằng kích thước màn hình */
+    /*margin: 0 auto; /* Tự động căn giữa khối .grid khi ở trong 1 khối khác */
+/*} 
 
 .grid__full-width {
     width: 100%; /* Khi không muốn sử dụng width: 1200px thì dùng cái này */
-}
+/*}*/
 
 .grid__row {
     display: flex;

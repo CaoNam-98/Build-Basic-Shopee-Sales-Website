@@ -1,4 +1,9 @@
+.app {
+    overflow: hidden;
+}
+
 .header {
+    position: relative;
     background-image: linear-gradient(180deg, #f63f2e, #ff6433);
     height: var(--header-height);
 }
@@ -183,6 +188,14 @@
     background-color: transparent;
 }
 
+.header__bars-list {
+    display: none;
+}
+
+.header__bars-with-search-btn {
+    display: none;
+}
+
 @keyframes headerNotify {
     from {
         opacity: 0; /* Hình ảnh mờ */
@@ -270,6 +283,56 @@
     padding: 8px 0;
     margin: auto;
     text-align: center;
+}
+
+.header__sort-bar {
+    position: absolute;
+    top: calc(var(--header-height));
+    left: 0; 
+    right: 0;
+    background-color: var(--white-color);
+    height: 36px;
+    display: none;
+}
+
+.header__sort-bar-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+}
+
+.header__sort-bar-item {
+    flex: 1;
+    position: relative;
+}
+
+.header__sort-bar-item::before {
+    display: block;
+    border-left: 1px solid #e5e5e5;
+    top: 50%;
+    height: 60%;
+    position: absolute;
+    content: "";
+    transform: translateY(-50%);
+}
+
+.header__sort-bar-item:first-child::before {
+    display: none;
+}
+
+.header__sort-bar-link {
+    font-size: 1.4rem;
+    line-height: 36px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    display: block;
+    text-align: center;
+}
+
+.header__sort-bar-link--active {
+    color: var(--primary-color);
 }
 
 /* Authen form */
@@ -415,6 +478,18 @@
     align-items: center;
 }
 
+.header__search-history {
+    
+}
+
+.header__search-history-icon {
+    font-size: 2.5rem;
+}
+
+.header__search-history-btn {
+    display: none;
+}
+
 .header__logo {
     width: 202px;
 }
@@ -444,12 +519,14 @@
     height: 40px;
     margin: 0 10px 0;
     text-align: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .header__cart-icon {
     font-size: 2.4rem;
     color: #fff;
     margin-top: 8px;
+    
 }
 
 /* CSS Header-Search */
@@ -707,7 +784,7 @@
     margin-top: 12px;
     list-style: none;
     padding: 0;
-    max-height: 50vh;
+    max-height: 40vh;
     overflow-y: scroll;
 }
 
@@ -898,6 +975,7 @@
 
 /* CSS App container */
 .app__container {
+    padding-top: 36px;
     background-color: #f5f5f5;
 }
 
@@ -965,6 +1043,7 @@
     padding: 10px 0;
     display: block;
     text-transform: capitalize;
+    font-weight: inherit;
 }
 
 .category-item-link:hover {
@@ -980,6 +1059,7 @@
     align-items: center;
     padding: 13px 20px;
     width: 100%;
+    margin-bottom: 36px;
 }
 
 .home-filter__label {
@@ -1112,6 +1192,63 @@
 .home-filter__page-btn--disabled .home-filter__page-icon {
     color: #ccc;
 }
+/* CSS thanh điều hướng (nav) Category */
+.mobile__category {
+    margin: -26px 0 36px 0;
+    display: none;
+}
+
+.mobile__category-list {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+    overflow-x: auto;
+}
+
+.mobile__category-list.mobile__category-list::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile__category-item {
+    border-radius: 4px;
+}
+
+.mobile__category-item + .mobile__category-item {
+    margin-left: 10px;
+}
+
+.mobile__category-item:nth-of-type(4n+1) {
+    background-color: #A1E2B2;
+}
+
+.mobile__category-item:nth-of-type(4n+2) {
+    background-color: #EDE766;
+}
+
+.mobile__category-item:nth-of-type(4n+3) {
+    background-color: #20A1F7;
+}
+
+.mobile__category-item:nth-of-type(4n+4) {
+    background-color: #F39F54;
+}
+
+.mobile__category-item-link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--white-color);
+    font-weight: 400;
+    min-width: 120px;
+    min-height: 36px;
+    display: block;
+    text-align: center;
+    padding: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
 /* CSS Home Product */
 .home-product-item {
@@ -1121,6 +1258,7 @@
     border-radius: 2px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
     transition: transform linear 0.1s;
+    margin-bottom: 36px;
 }
 
 .home-product-item:hover {
@@ -1161,12 +1299,12 @@
     color: var(--text-color);
     text-decoration: line-through;
     margin-right: 5px;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
 }
 
 .home-product-item__price-current {
     color: #ee4d2d;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 .shopee-svg-icon {
@@ -1380,6 +1518,7 @@ i.home-product-item__heart-fill {
 
 .footer-bottom__item {
     position: relative;
+    text-align: center;
 }
 
 .footer-bottom__item-separate::after {
